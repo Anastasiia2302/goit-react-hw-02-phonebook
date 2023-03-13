@@ -17,13 +17,18 @@ class App extends Component {
   };
 
   handlerSubmit = data => {
-    this.setState(({ contacts }) =>
-      contacts.find(
-        contact => contact.name.toLowerCase() === data.name.toLowerCase()
-      )
-        ? alert(`${data.name} is already in contacts`)
-        : { contacts: [data, ...contacts] }
-    );
+    const isExist = this.setState.contacts.find(
+      contact => contact.name.toLowerCase() === data.name.toLowerCase()
+    )
+    if (isExist) {
+      alert(`${data.name} is already in contacts`)
+    return;}
+    
+
+
+   this.setState({contacts:[data, ...this.contacts]})
+    
+    
   };
 
   onFilter = element => {

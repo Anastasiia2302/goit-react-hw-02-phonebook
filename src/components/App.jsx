@@ -17,7 +17,7 @@ class App extends Component {
   };
 
   handlerSubmit = data => {
-    const isExist = this.setState.contacts.find(
+    const isExist = this.state.contacts.find(
       contact => contact.name.toLowerCase() === data.name.toLowerCase()
     )
     if (isExist) {
@@ -26,7 +26,8 @@ class App extends Component {
     
 
 
-   this.setState({contacts:[data, ...this.contacts]})
+   this.setState(prevState => ({contacts:[...prevState.contacts, data] }));
+   
     
     
   };
